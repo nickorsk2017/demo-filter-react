@@ -1,0 +1,113 @@
+.container {
+    width: 100%;
+    padding: 24px 24px 24px 32px;
+    border-bottom: 1px solid #EAEEEE;
+}
+.container:first-child {
+    border-top: 1px solid #EAEEEE;
+}
+.left {
+    width: calc(100% - 94px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+}
+.right {
+    width: 94px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0px;
+}
+.doctorDataWrapper {
+    height: 96px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.doctorName {
+    /* Desktop/H3 Headline */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 32px;
+    /* identical to box height, or 145% */
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.3px;
+    /* vitalGreen90 */
+    color: #244D51;
+}
+.doctorData {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.doctorDataBottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    /* Desktop/Body 1 */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    letter-spacing: -0.3px;
+    /* vitalGreen70 */
+    color: #668386;
+}
+.ellipse {
+    width: 4px;
+    height: 4px;
+    display: inline-block;
+    background: #244D51;
+    margin-top: 4px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 100%;
+}
+.doctorSpeciality {
+    /* Desktop/Body 1 */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    letter-spacing: -0.3px;
+    /* vitalGreen90 */
+    color: #244D51;
+}
+.doctorYears {
+    /* Desktop/Body 1 */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    letter-spacing: -0.3px;
+    /* vitalGreen90 */
+    color: #244D51;
+}
+.doctorReviews {
+    /* Desktop/Body 1 */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    letter-spacing: -0.3px;
+    /* heartyRed70 */
+    color: #D97767;
+}

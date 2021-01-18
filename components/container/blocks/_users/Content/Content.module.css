@@ -1,0 +1,43 @@
+.container {
+    width: 908px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100%);
+    padding: 40px 32px 0 32px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.h1 {
+    /* Desktop/H2 Headline */
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 40px;
+    /* identical to box height, or 125% */
+    letter-spacing: -0.3px;
+    /* vitalGreen90 */
+    color: #244D51;
+    margin-bottom: 16px;
+}
+.h2 {
+    display: inline-flex;
+    flex-direction: revert;
+    align-items: center;
+    justify-content: flex-start;
+    /* Desktop/Body 1 */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    letter-spacing: -0.3px;
+    /* vitalGreen90 */
+    color: #244D51;
+}
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 3px;
+}

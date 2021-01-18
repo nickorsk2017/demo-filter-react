@@ -1,0 +1,71 @@
+.selectContainer {
+    width: auto;
+    display: inline-block;
+    margin-right: 11px;
+}
+.selectValue {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    /* clearWhite */
+    background: #FFFFFF;
+    /* vitalGreen30 */
+    border: 1px solid #BECACB;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: #244D51;
+    user-select: none;
+}
+.selectValueResult {
+    /* Desktop/Body 1 */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+}
+.selectValueArrow {
+    height: 6px;
+    width: 10px;
+    margin-left: 10px;
+    position: relative;
+    top: 1px;
+}
+.selectPopup {
+    position: relative;
+}
+.count {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    margin-left: 4px;
+}
+.cancel {
+    margin-left: 8px;
+}
+.isOpened {
+    .selectValue {
+        background: #327680;
+        color: #FFFFFF
+    }
+    .selectValueArrow {
+        filter: brightness(0) invert(1);
+        transform: rotate(180deg);
+    }
+}
+.disableBorder {
+    .selectValue {
+        background: #fff;
+    }
+    .selectValue {
+        border: none;
+        color: #244D51;
+    }
+    .selectValueArrow {
+        filter: unset;
+    }
+}

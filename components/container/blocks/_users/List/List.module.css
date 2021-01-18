@@ -1,0 +1,17 @@
+.list {
+    width: 100%;
+    padding: 29px 0;
+    overflow: auto;
+    box-sizing: border-box;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.empty {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,1 @@
+export {DoctorItem} from "./DoctorItem/DoctorItem";

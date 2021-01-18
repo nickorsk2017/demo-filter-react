@@ -1,0 +1,55 @@
+.container {
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2px;
+}
+.label {
+    font-family: Inter;
+    line-height: 24px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #244D51;
+    padding: 0 15px;
+}
+.checked {
+    .icon {
+        filter: brightness(1) invert(1);
+        width: 9px;
+        height: 7px;
+    }
+    .slider {
+        background-color: #244D51;
+    }
+}
+.slider {
+    background-color: #BECACB;
+    border-radius: 50px;
+    min-width: 54px;
+    width: 54px;
+    height: 32px;
+    position: relative;
+}
+.sliderButton {
+    width: 26px;
+    height: 26px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 0px rgba(26, 26, 26, 0.16), 0px 1px 2px rgba(26, 26, 26, 0.16);
+    border-radius: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    position: absolute;
+    left: 3px;
+    top: calc(50% - 13px);
+    cursor: pointer;
+    &:focus {
+        border: 1px solid #244D51;
+        outline: none !important;
+    }
+}

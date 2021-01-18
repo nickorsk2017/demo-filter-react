@@ -1,0 +1,29 @@
+.container {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 24px;
+    background: #327680;
+    /* accentEmerald90 */
+    border: 1px solid #327680;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.containerHeartyRed {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    background: transparent;
+    color: #ED6852;
+    padding: 0 !important;
+    border: none !important;
+    border-bottom: 0.5px dotted #ED6852 !important;
+    cursor: pointer;
+    margin-right: 10px;
+}
