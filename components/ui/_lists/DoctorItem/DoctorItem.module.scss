@@ -1,7 +1,16 @@
 .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     padding: 24px 24px 24px 32px;
     border-bottom: 1px solid #EAEEEE;
+    background: #fff;
+    cursor: pointer;
+    &:hover {
+        background: #F5F7F7;
+    }
 }
 .container:first-child {
     border-top: 1px solid #EAEEEE;
@@ -21,6 +30,15 @@
     align-items: flex-start;
     justify-content: space-between;
     padding: 0px;
+}
+.doctorAvatar {
+    width: 96px;
+    height: 96px;
+    overflow: hidden;
+    border-radius: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 16px;
 }
 .doctorDataWrapper {
     height: 96px;
@@ -110,4 +128,60 @@
     letter-spacing: -0.3px;
     /* heartyRed70 */
     color: #D97767;
+}
+.rightTop {
+    width: 100%;
+}
+.heart {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 22px;
+}
+.avg {
+    /* Desktop/Caption */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    font-size: 14px;
+    line-height: 18px;
+    color: #244D51;
+    margin-bottom: 6px;
+}
+.avgLabel {
+    border-bottom: 1px solid #244D51;
+}
+
+.price {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    text-align: right;
+    font-size: 18px;
+    line-height: 26px;
+    color: #244D51;
+}
+.avatartContainer {
+    position: relative;
+}
+.videoIcon {
+    position: absolute;
+    top: 70px;
+    right: 11px;
+    width: 32px;
+    height: 32px;
+    background: rgb(245, 229, 133);
+    border-radius: 50px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+}
+.video {
+    width: 16px;
+    height: 16px;
 }

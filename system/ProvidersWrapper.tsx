@@ -1,10 +1,15 @@
 import {} from "react";
+import { Provider } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
+import * as reducers from 'store/reducers';
 
 export function ProvidersWrapper(props) {
   const {children} = props;
+  const store = createStore(combineReducers(reducers));
+
   return (
-    <div style={{height: "100%", width: "100%"}}>
+    <Provider store={store}>
       {children}
-    </div>
+    </Provider>
   );
 }

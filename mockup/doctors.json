@@ -13,8 +13,8 @@
           "address": "76 David Park",
           "insurances": "Hartford",
           "telehealth": true,
-          "telehealth_available": "5/24/2021",
-          "offline_available": "7/9/2021",
+          "telehealth_available": "1/24/2021",
+          "offline_available": "1/9/2021",
           "price": 3600
         },
         {
@@ -28,8 +28,8 @@
           "address": "89 Maywood Court",
           "insurances": "Ironshore",
           "telehealth": true,
-          "telehealth_available": "8/24/2021",
-          "offline_available": "5/1/2021",
+          "telehealth_available": "1/24/2021",
+          "offline_available": "1/1/2021",
           "price": 500
         },
         {
@@ -43,8 +43,8 @@
           "address": "36633 Service Point",
           "insurances": "Great American Insurance Group",
           "telehealth": true,
-          "telehealth_available": "6/1/2021",
-          "offline_available": "9/19/2021",
+          "telehealth_available": "1/1/2021",
+          "offline_available": "1/19/2021",
           "price": 3000
         },
         {
@@ -58,8 +58,8 @@
           "address": "42 Farwell Point",
           "insurances": "ANE",
           "telehealth": false,
-          "telehealth_available": "8/28/2021",
-          "offline_available": "2/2/2021",
+          "telehealth_available": "1/28/2021",
+          "offline_available": "1/2/2021",
           "price": 8300
         },
         {
@@ -73,8 +73,8 @@
           "address": "6613 Spaight Terrace",
           "insurances": "",
           "telehealth": true,
-          "telehealth_available": "4/7/2021",
-          "offline_available": "2/22/2021",
+          "telehealth_available": "1/7/2021",
+          "offline_available": "1/22/2021",
           "price": 7900
         },
         {
@@ -88,8 +88,8 @@
           "address": "09247 Forest Crossing",
           "insurances": "Golden Rule Insurance Company",
           "telehealth": false,
-          "telehealth_available": "7/14/2021",
-          "offline_available": "3/11/2021",
+          "telehealth_available": "1/14/2021",
+          "offline_available": "1/11/2021",
           "price": 2200
         },
         {
@@ -103,8 +103,8 @@
           "address": "1 Dixon Way",
           "insurances": "American Family Insurance",
           "telehealth": true,
-          "telehealth_available": "10/4/2021",
-          "offline_available": "7/26/2021",
+          "telehealth_available": "1/4/2021",
+          "offline_available": "1/26/2021",
           "price": 6500
         },
         {
@@ -118,8 +118,8 @@
           "address": "3174 Sunfield Street",
           "insurances": "ACORD",
           "telehealth": false,
-          "telehealth_available": "3/12/2021",
-          "offline_available": "4/14/2021",
+          "telehealth_available": "1/12/2021",
+          "offline_available": "1/14/2021",
           "price": 800
         },
         {

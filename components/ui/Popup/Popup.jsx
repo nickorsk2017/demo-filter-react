@@ -32,8 +32,11 @@ export function Popup(props) {
     if(buttons && Array.isArray(buttons.JSX)){
       _style.paddingBottom = "48px";
     }
+    const onClickPopup = (e) => {
+      e.stopPropagation();
+    }
     return (
-      <div style={_style} className={styles.popupContainer}>
+      <div onClick={onClickPopup} style={_style} className={styles.popupContainer}>
         <div className={styles.popupItems}>
           {rendeItems(items)}
         </div>

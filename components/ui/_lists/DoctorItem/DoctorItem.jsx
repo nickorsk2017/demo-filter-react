@@ -1,5 +1,5 @@
 import {memo} from "react";
-import styles from './DoctorItem.module.css';
+import styles from './DoctorItem.module.scss';
 
 /**
  * USING REACT.MEMO FOR PERFROMANCE
@@ -21,9 +21,16 @@ export const DoctorItem = memo((props) => {
        
         <div className={styles.left}>
 
-          <div>
-
+          <div className={styles.avatartContainer}>
+            <div style={{backgroundImage: `url(${'./photos/iam.png'})`}} className={styles.doctorAvatar}>
+              
+            </div>
+            {doctor.telehealth && <div className={styles.videoIcon}>
+                <img src="./video.svg" className={styles.video}/>
+              </div>
+            }
           </div>
+        
 
           <div className={styles.doctorDataWrapper}>
             <div className={styles.doctorName}>{doctor.name}</div>
@@ -42,12 +49,13 @@ export const DoctorItem = memo((props) => {
         </div>
 
         <div className={styles.right}>
-          <div>
-            <div></div>
-            <div></div>
+          <div className={styles.rightTop}>
+            <div className={styles.avg}><span className={styles.avgLabel}>avg. price</span></div>
+            <div className={styles.price}>${doctor.price}</div>
           </div>
-          <div>
-            
+          
+          <div className={styles.heart}>
+            <img src="./heart.svg"/>
           </div>
         </div>
 

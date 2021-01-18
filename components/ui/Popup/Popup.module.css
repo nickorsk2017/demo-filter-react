@@ -1,5 +1,6 @@
 .popupContainer {
     width: 320px;
+    max-height: 492px;
     min-height: 300px;
     /* clearWhite */
     background: #FFFFFF;
@@ -8,8 +9,11 @@
     filter: drop-shadow(-4px 4px 8px rgba(0, 0, 0, 0.16));
     box-sizing: border-box;
     border-radius: 8px;
-    padding: 16px;
+    padding: 16px 0;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
 }
 .popupButtons {
     display: flex;
@@ -25,4 +29,9 @@
     padding: 0 16px;
     box-sizing: border-box;
     border-radius: 0 0 8px 8px;
+}
+.popupItems {
+    height: calc(100% - 48px);
+    overflow: auto;
+    padding: 0 16px;
 }
