@@ -72,6 +72,16 @@ export function List() {
           return -1
         }
       }
+      if(storeDoctorsFilter.sort_value === "MOST_EXPERIENCED"){
+        const reviewsDcotorA = parseInt(doctorA.reviewsCount);
+        const reviewsDcotorB = parseInt(doctorB.reviewsCount);
+        if(reviewsDcotorA > reviewsDcotorB){
+          return 1
+        } else {
+          return -1
+        }
+      }
+
     });
 
       return 0;
