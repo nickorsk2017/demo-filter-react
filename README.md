@@ -5,11 +5,13 @@ This is demonstration the constructor of filter
 Stepanov Nickolay
 
 skype: love_summer_life
+
 email: nickorsk2017@gmail.com
 
-# Instalation
+# Installation
 
 npm i
+
 npm run dev
 
 Should be opened in http://localhost:3000/
