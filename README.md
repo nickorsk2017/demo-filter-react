@@ -1,7 +1,7 @@
 # Description
 This is demonstration the constructor of filter (How possible to do components with minimum coding).
 
-For filter using the "Shema design pattern", see Flter component. Alternative solution array of React components (JSX array)
+For filter using the "Shema design pattern", see Flter component. Alternative solution is array of React components (JSX array)
 
 For optimisation used React.memo
 
