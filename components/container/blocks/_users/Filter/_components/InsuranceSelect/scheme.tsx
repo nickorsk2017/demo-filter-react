@@ -1,59 +1,67 @@
 import {Button} from '@ui';
+import {Schemes, CheckBoxScheme} from "@ui";
+import {DoctorsListFilterReducerType} from "@store/reducers";
 
-export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply, setInsuranceFilterValue, storeDoctorsFilter }) => {
+type PropsType = {
+  isCheckBoxSelected: (checkboxId: string) => boolean;
+  toggleCheckBox: (checkboxId: string) => void;
+  clearValues: ({clearCache}: {clearCache: boolean}) => void;
+  apply: () => void;
+  setInsuranceFilterValue: (newValue: string) => void;
+  storeDoctorsFilter: DoctorsListFilterReducerType;
+};
+type ButtonsType = {JSX: Array<React.ReactNode>, justifyContent?: string};
 
-    const getInsurances = () => {
-      const items = [
+export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply, setInsuranceFilterValue, storeDoctorsFilter } : PropsType) : {items: Array<Schemes>, buttons: ButtonsType} => {
+
+    const getInsurances = (): Array<CheckBoxScheme> => {
+
+      const items: Array<CheckBoxScheme>  = [
         {
           // will use in a loop later, dont use index
           id: "ACORD",
           type: "checkbox",
           label: "ACORD",
-          value: (checkboxId) => {return isCheckBoxSelected(checkboxId)},
-          toggleCheckBox,
-          sufixJSX: <span style={{color: "#91A5A7", marginLeft: "8px"}}>(2)</span>
+          value: (checkboxId: string) => {return isCheckBoxSelected(checkboxId)},
+          toggleCheckBox
         },
         {
           // will use in a loop later, dont use index
           id: "AFLAC",
           type: "checkbox",
           label: "AFLAC",
-          value: (checkboxId) => {return isCheckBoxSelected(checkboxId)},
-          toggleCheckBox,
-          sufixJSX: <span style={{color: "#91A5A7", marginLeft: "8px"}}>(7)</span>
+          value: (checkboxId: string) => {return isCheckBoxSelected(checkboxId)},
+          toggleCheckBox
         },
         {
           // will use in a loop later, dont use index
           id: "AIG",
           type: "checkbox",
           label: "AIG",
-          value: (checkboxId) => {return isCheckBoxSelected(checkboxId)},
-          toggleCheckBox,
-          sufixJSX: <span style={{color: "#91A5A7", marginLeft: "8px"}}>(7)</span>
+          value: (checkboxId: string) => {return isCheckBoxSelected(checkboxId)},
+          toggleCheckBox
         },
         {
           // will use in a loop later, dont use index
           id: "ANE",
           type: "checkbox",
           label: "ANE",
-          value: (checkboxId) => {return isCheckBoxSelected(checkboxId)},
-          toggleCheckBox,
-          sufixJSX: <span style={{color: "#91A5A7", marginLeft: "8px"}}>(7)</span>
+          value: (checkboxId: string) => {return isCheckBoxSelected(checkboxId)},
+          toggleCheckBox
         },
         {
           // will use in a loop later, dont use index
           id: "CNA",
           type: "checkbox",
           label: "CNA",
-          value: (checkboxId) => {return isCheckBoxSelected(checkboxId)},
-          toggleCheckBox,
-          sufixJSX: <span style={{color: "#91A5A7", marginLeft: "8px"}}>(7)</span>
+          value: (checkboxId: string) => {return isCheckBoxSelected(checkboxId)},
+          toggleCheckBox
         },
       ];
-      return items.filter((item) => {
+      return items.filter((item: CheckBoxScheme) => {
         return item.label.includes(storeDoctorsFilter.insuranceFilterValue.toUpperCase())
       });
-    } 
+    }
 
     return {
         items: [
@@ -61,7 +69,7 @@ export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply, 
             id: "PROVIDES_OTHER_PAYMENTS",
             type: "sliderBox",
             label: "Provides other than insurance payment options",
-            value: (checkboxId) => {return isCheckBoxSelected(checkboxId)},
+            value: (checkboxId: string) => {return isCheckBoxSelected(checkboxId)},
             toggleSliderBox: toggleCheckBox,
             useLeftSideLabel: true
           },
@@ -75,7 +83,7 @@ export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply, 
             typeInput: "search",
             placeholder: "Filter by insurance carrier",
             value: () => {return storeDoctorsFilter.insuranceFilterValue},
-            onChange: (newValue) => {
+            onChange: (newValue: string) => {
               setInsuranceFilterValue(newValue);
             },
             focusOnInit: true,
@@ -83,7 +91,7 @@ export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply, 
           ...getInsurances()
         ],
         buttons: {
-          JSX: [<Button key="SPECIALITY_RESET" onClick={clearValues} theme="heartyRed">Reset</Button>, <Button key="SPECIALITY_APPLY" onClick={apply} style={{marginRight: 0}}>Apply</Button>],
+          JSX: [<Button key="SPECIALITY_RESET" onClick={clearValues} theme="HEARTY_RED">Reset</Button>, <Button key="SPECIALITY_APPLY" onClick={apply} style={{marginRight: 0}}>Apply</Button>],
           justifyContent: "space-between"
         }
       }

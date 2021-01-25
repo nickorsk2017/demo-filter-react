@@ -1,12 +1,26 @@
 import {Button} from '@ui';
+import {Schemes, CheckBoxScheme} from "@ui";
+import {DoctorsListReducerType, DoctorsListFilterReducerType} from "@store/reducers";
 import { useSelector } from "react-redux";
 
-export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply, setSpecialityFilterValue, storeDoctorsFilter }) => {
-    const storeDoctorsList = useSelector(state => state.doctorsListReducer.doctorList);
+type PropsType = {
+  isCheckBoxSelected: (checkboxId: string) => boolean;
+  toggleCheckBox: (checkboxId: string) => void;
+  clearValues: ({clearCache}: {clearCache: boolean}) => void;
+  apply: () => void;
+  setSpecialityFilterValue: (newValue: string) => void;
+  storeDoctorsFilter: DoctorsListFilterReducerType;
+};
+type ButtonsType = {JSX: Array<React.ReactNode>, justifyContent?: string};
 
-    const getSpeciality = () => {
-      const specialities = [];
-      let specialitiesCounts = {};
+export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply, setSpecialityFilterValue, storeDoctorsFilter } : PropsType) : {items: Array<Schemes>, buttons: ButtonsType} => {
+    const storeDoctorsList = useSelector((state: {doctorsListReducer: DoctorsListReducerType}) => state.doctorsListReducer.doctorList);
+
+    const getSpeciality = (): Array<CheckBoxScheme> => {
+      const specialities: Array<string> = [];
+      let specialitiesCounts: {
+        [key: string]: number;
+      } = {};
       storeDoctorsList.forEach((doctor) => {
         specialitiesCounts[doctor.speciality] = (specialitiesCounts[doctor.speciality] || 0) + 1;
         if(!specialities.includes(doctor.speciality) && doctor.speciality.includes(storeDoctorsFilter.specialityFilterValue)){
@@ -20,7 +34,7 @@ export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply, 
           id: speciality.toUpperCase(),
           type: "checkbox",
           label: speciality,
-          value: (checkboxId) => {return isCheckBoxSelected(checkboxId)},
+          value: (checkboxId: string) => {return isCheckBoxSelected(checkboxId)},
           toggleCheckBox,
           sufixJSX: <span style={{color: "#91A5A7", marginLeft: "8px"}}>({specialitiesCounts[speciality]})</span>
         };
@@ -42,7 +56,7 @@ export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply, 
         ...getSpeciality()
       ],
       buttons: {
-        JSX: [<Button key="SPECIALITY_RESET" onClick={clearValues} theme="heartyRed">Reset</Button>, <Button key="SPECIALITY_APPLY" onClick={apply} style={{marginRight: 0}}>Apply</Button>],
+        JSX: [<Button key="SPECIALITY_RESET" onClick={clearValues} theme="HEARTY_RED">Reset</Button>, <Button key="SPECIALITY_APPLY" onClick={apply} style={{marginRight: 0}}>Apply</Button>],
         justifyContent: "space-between"
       }
     }

@@ -1,14 +1,14 @@
 import {doctorsListFilterActions} from "@store/actions/";
 import { useDispatch, useSelector } from "react-redux";
+import {DoctorsListFilterReducerType, DoctorsListReducerType} from "@store/reducers";
 import {scheme} from "./scheme";
 import {Select} from '@ui';
-import styles from './SpecialitySelect.module.css';
 
 export function SpecialitySelect() {
-    const storeDoctorsFilter = useSelector(state => state.doctorsListFilterReducer);
+    const storeDoctorsFilter: DoctorsListFilterReducerType = useSelector((state: {doctorsListFilterReducer: DoctorsListFilterReducerType}) => state.doctorsListFilterReducer);
     const dispatch = useDispatch();
 
-    const setSpecialityFilterValue = (newValue) => {
+    const setSpecialityFilterValue = (newValue: string) => {
       dispatch(doctorsListFilterActions.updateSpecialityFilterValue(newValue));
     };
 
@@ -17,7 +17,7 @@ export function SpecialitySelect() {
       return count;
     }
 
-    const toggleCheckBox = (checkboxId) => {
+    const toggleCheckBox = (checkboxId: string) => {
       let _checkedIds = [...storeDoctorsFilter.speciality_checked];
       if(_checkedIds.includes(checkboxId)){
         _checkedIds = _checkedIds.filter((_checkboxId) => {
@@ -29,11 +29,11 @@ export function SpecialitySelect() {
       dispatch(doctorsListFilterActions.updateSpecialityChecked(_checkedIds));
     };
 
-    const isCheckBoxSelected = (checkboxId) => {
+    const isCheckBoxSelected = (checkboxId: string) => {
       return storeDoctorsFilter.speciality_checked.includes(checkboxId);
     };
 
-    const clearValues = ({clearCache}) => {
+    const clearValues = ({clearCache}: {clearCache: boolean}) => {
       dispatch(doctorsListFilterActions.clearSpeciality(clearCache));
     }
     const apply = () => {

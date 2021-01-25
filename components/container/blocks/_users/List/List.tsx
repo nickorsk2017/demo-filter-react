@@ -1,23 +1,26 @@
 import {useEffect} from "react";
 import {pushDoctorList} from "@store/actions/doctorsListActions";
-import * as moment from 'moment';
+import {DoctorsListReducerType, DoctorsListFilterReducerType} from "@store/reducers";
+import moment from 'moment';
+import {Doctor} from "@_types/doctor";
 import { useSelector, useDispatch } from "react-redux";
 import {DoctorItem} from "@ui";
 import {DoctorsData} from "@mockup";
 import styles from './List.module.css';
 
 export function List() {
-  const storeDoctorsFilter = useSelector(state => state.doctorsListFilterReducer);
-  const storeDoctorsList = useSelector(state => state.doctorsListReducer.doctorList);
+  const storeDoctorsFilter: DoctorsListFilterReducerType = useSelector((state: {doctorsListFilterReducer: DoctorsListFilterReducerType}) => state.doctorsListFilterReducer);
+  const storeDoctorsList = useSelector((state: {doctorsListReducer: DoctorsListReducerType}) => state.doctorsListReducer.doctorList);
   let data = DoctorsData.data.items;
   const dispatch = useDispatch();
-  let timer = null;
+  let timer: ReturnType<typeof setTimeout> | null = null;
+
   useEffect(() => {
     more();
   }, []);
 
   const getList = () => {
-    let today  = moment();
+    let today: moment.Moment = moment();
 
     return storeDoctorsList.filter((doctor) => {
       let shownDoctor = true;
@@ -58,10 +61,12 @@ export function List() {
       if(storeDoctorsFilter.speciality_cache.checkboxs.length > 0){
         shownDoctor = storeDoctorsFilter.speciality_cache.checkboxs.includes(doctor.speciality.toUpperCase());
       }
-
-
+      //insurance
+      if(storeDoctorsFilter.insurance_cache.checkboxs.length > 0){
+        shownDoctor = false;
+      }
       return (shownDoctor && (timeValid === null || timeValid));
-    }).sort((doctorA, doctorB) => {
+    }).sort((doctorA: Doctor, doctorB: Doctor) => {
 
       if(storeDoctorsFilter.sort_value === "NEXT_AVAILABLE"){
         const timeDcotorA = moment(doctorA.offline_available, 'MM/DD/YYYY');
@@ -73,31 +78,34 @@ export function List() {
         }
       }
       if(storeDoctorsFilter.sort_value === "MOST_EXPERIENCED"){
-        const reviewsDcotorA = parseInt(doctorA.reviewsCount);
-        const reviewsDcotorB = parseInt(doctorB.reviewsCount);
-        if(reviewsDcotorA > reviewsDcotorB){
+        const reviewsDcotorA = doctorA.reviewsCount;
+        const reviewsDcotorB = doctorB.reviewsCount;
+        if(reviewsDcotorA < reviewsDcotorB){
           return 1
         } else {
           return -1
         }
       }
-
-    });
-
       return 0;
+    });
   }
 
-  const isBottom = (element) => {
-    return element.scrollHeight - element.scrollTop === element.clientHeight
+  const isBottom = (element: HTMLDivElement) => {
+    if(element){
+      return element.scrollHeight - element.scrollTop === element.clientHeight
+    }
+    return false;
   }
-  const trackScrolling = (event) => {
-    if (isBottom(event.target)) {
+  const trackScrolling = (event: React.SyntheticEvent<HTMLDivElement>) => {
+    if (isBottom(event.currentTarget)) {
       more();
     }
   };
 
   const more = function(timeout = 500){
-      clearTimeout(timer);
+      if(timer){
+        clearTimeout(timer);
+      }
       timer = setTimeout(() => {
         dispatch(pushDoctorList(data))
       }, timeout);

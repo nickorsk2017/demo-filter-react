@@ -1,4 +1,4 @@
-import {Filter, List} from "../";
+import {Filter, List} from "..";
 import {Hr} from "@ui";
 import styles from './Content.module.css';
 

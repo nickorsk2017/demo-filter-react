@@ -14,6 +14,8 @@
     display: flex;
     flex-direction: column;
     z-index: 10;
+    animation-name: fadeInDown;
+    animation-duration: 0.5s;
 }
 .popupButtons {
     display: flex;
@@ -35,3 +37,14 @@
     overflow: auto;
     padding: 0 16px;
 }
+
+@keyframes fadeInDown {
+    0% {
+       opacity: 0;
+       transform: translateY(-20px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateY(0);
+    }
+ }

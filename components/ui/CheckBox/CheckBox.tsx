@@ -1,6 +1,16 @@
 import styles from './CheckBox.module.scss';
 
-export function CheckBox(props) {
+export interface ComponentProps_CheckBox {
+  label: string;
+  style?: React.CSSProperties;
+  prefixJSX?: React.ReactNode;
+  sufixJSX?: React.ReactNode;
+  value: boolean;
+  id: string;
+  toggleCheckBox(id: string): void;
+}
+
+export const CheckBox: React.FC<ComponentProps_CheckBox> = (props) => {
     const {label, style, prefixJSX, sufixJSX, value, id, toggleCheckBox} = props;
 
     const _toggleCheckBox = () => {

@@ -18,7 +18,7 @@ export function Filter() {
         <SpecialitySelect/>
         <InsuranceSelect/>
         <SortSelect/>
-        <Button onClick={clearAll} theme="heartyRed">Clear filters</Button>
+        <Button onClick={clearAll} theme="HEARTY_RED">Clear filters</Button>
       </div>
     )
   }

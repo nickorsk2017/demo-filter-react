@@ -1,17 +1,18 @@
 import {doctorsListFilterActions} from "@store/actions/";
+import {DoctorsListFilterReducerType} from "@store/reducers";
 import { useDispatch, useSelector } from "react-redux";
 import {scheme} from "./scheme";
 import {Select} from '@ui';
 
 export function SortSelect() {
-    const storeDoctorsFilter = useSelector(state => state.doctorsListFilterReducer);
+    const storeDoctorsFilter: DoctorsListFilterReducerType = useSelector((state: {doctorsListFilterReducer: DoctorsListFilterReducerType}) => state.doctorsListFilterReducer);
     const dispatch = useDispatch();
 
-    const toggleSortValue = (_sortValue) => {
+    const toggleSortValue = (_sortValue: string) => {
       dispatch(doctorsListFilterActions.setSortValue(_sortValue));
     };
 
-    const clearValues = ({clearCache}) => {
+    const clearValues = ({clearCache} : {clearCache: boolean}) => {
       dispatch(doctorsListFilterActions.clearSort(clearCache));
     }
     const getScheme = () => {

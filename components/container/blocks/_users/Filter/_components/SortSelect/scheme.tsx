@@ -1,6 +1,12 @@
-import {Button} from '@ui';
+import {DoctorsListFilterReducerType} from "@store/reducers";
+import {Schemes} from "@ui";
 
-export const scheme = ({toggleSortValue, storeDoctorsFilter }) => {
+type PropsType = {
+  toggleSortValue: (_sortValue: string) => void;
+  storeDoctorsFilter: DoctorsListFilterReducerType
+};
+
+export const scheme = ({toggleSortValue, storeDoctorsFilter }: PropsType) : {items: Array<Schemes>} => {
     return {
       items: [
         {
@@ -14,7 +20,7 @@ export const scheme = ({toggleSortValue, storeDoctorsFilter }) => {
           id: "NEXT_AVAILABLE",
           type: "optionbox",
           label: "Next available",
-          value: (sortBoxId) => sortBoxId === storeDoctorsFilter.sort_value,
+          value: (sortBoxId: string) => sortBoxId === storeDoctorsFilter.sort_value,
           toggleOpenBox: toggleSortValue
         },
         {
@@ -22,7 +28,7 @@ export const scheme = ({toggleSortValue, storeDoctorsFilter }) => {
           id: "MOST_EXPERIENCED",
           type: "optionbox",
           label: "Most Experienced",
-          value: (sortBoxId) => sortBoxId === storeDoctorsFilter.sort_value,
+          value: (sortBoxId: string) => sortBoxId === storeDoctorsFilter.sort_value,
           toggleOpenBox: toggleSortValue
         },
       ]

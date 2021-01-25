@@ -1,14 +1,14 @@
 import {doctorsListFilterActions} from "@store/actions/";
 import { useDispatch, useSelector } from "react-redux";
+import {DoctorsListFilterReducerType} from "@store/reducers";
 import {scheme} from "./scheme";
 import {Select, Button} from '@ui';
-import styles from './InsuranceSelect.module.css';
 
 export function InsuranceSelect() {
-    const storeDoctorsFilter = useSelector(state => state.doctorsListFilterReducer);
+    const storeDoctorsFilter: DoctorsListFilterReducerType = useSelector((state: {doctorsListFilterReducer: DoctorsListFilterReducerType}) => state.doctorsListFilterReducer);
     const dispatch = useDispatch();
 
-    const setInsuranceFilterValue = (newValue) => {
+    const setInsuranceFilterValue = (newValue: string) => {
       dispatch(doctorsListFilterActions.updateInsuranceFilterValue(newValue));
     };
 
@@ -17,7 +17,7 @@ export function InsuranceSelect() {
       return count;
     }
 
-    const toggleCheckBox = (checkboxId) => {
+    const toggleCheckBox = (checkboxId: string) => {
       let _checkedIds = [...storeDoctorsFilter.insurance_checked];
       if(_checkedIds.includes(checkboxId)){
         _checkedIds = _checkedIds.filter((_checkboxId) => {
@@ -29,11 +29,11 @@ export function InsuranceSelect() {
       dispatch(doctorsListFilterActions.updateInsuranceChecked(_checkedIds));
     };
 
-    const isCheckBoxSelected = (checkboxId) => {
+    const isCheckBoxSelected = (checkboxId: string) => {
       return storeDoctorsFilter.insurance_checked.includes(checkboxId);
     };
 
-    const clearValues = ({clearCache}) => {
+    const clearValues = ({clearCache} : {clearCache: boolean}) => {
       dispatch(doctorsListFilterActions.clearInsurance(clearCache));
     }
 

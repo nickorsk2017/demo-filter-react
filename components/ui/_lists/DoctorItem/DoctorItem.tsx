@@ -1,12 +1,17 @@
 import {memo} from "react";
+import {Doctor} from "@_types/doctor"
 import styles from './DoctorItem.module.scss';
+
+export interface ComponentProps {
+  doctor: Doctor
+}
 
 /**
  * USING REACT.MEMO FOR PERFROMANCE
  */
-export const DoctorItem = memo((props) => {
+export const DoctorItem: React.FC<ComponentProps> = memo((props) => {
     const {doctor} = props;
-    const maybePluralize = (count, noun, suffix = 's') => `${count} ${noun}${count !== 1 ? suffix : ''}`;
+    const maybePluralize = (count: number, noun: string, suffix: string = 's') => `${count} ${noun}${count !== 1 ? suffix : ''}`;
 
     const getYears = () => {
       return maybePluralize(doctor.experience, "Year");
@@ -22,7 +27,7 @@ export const DoctorItem = memo((props) => {
         <div className={styles.left}>
 
           <div className={styles.avatartContainer}>
-            <div style={{backgroundImage: `url(${'./photos/iam.png'})`}} className={styles.doctorAvatar}>
+            <div style={{backgroundImage: `url(${'./photos/doctor.jpg'})`}} className={styles.doctorAvatar}>
               
             </div>
             {doctor.telehealth && <div className={styles.videoIcon}>

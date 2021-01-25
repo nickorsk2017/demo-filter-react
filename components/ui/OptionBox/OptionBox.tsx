@@ -1,6 +1,16 @@
 import styles from './OptionBox.module.scss';
 
-export function OptionBox(props) {
+export interface ComponentProps_OptionBox {
+  label?: string;
+  style?: React.CSSProperties;
+  prefixJSX?: React.ReactNode;
+  sufixJSX?: React.ReactNode;
+  value: boolean;
+  id: string;
+  toggleOpenBox(id: string): void;
+}
+
+export const OptionBox: React.FC<ComponentProps_OptionBox> = (props: ComponentProps_OptionBox) =>  {
     const {label, style, prefixJSX, sufixJSX, value, id, toggleOpenBox} = props;
 
     const _toggleOpenBox = () => {

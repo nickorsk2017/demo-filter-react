@@ -1,14 +1,15 @@
 import {doctorsListFilterActions} from "@store/actions/";
 import { useDispatch, useSelector } from "react-redux";
+import {DoctorsListFilterReducerType} from "@store/reducers";
 import {scheme} from "./scheme";
 import {Select, Button} from '@ui';
-import styles from './AvailabilitySelect.module.css';
+
 
 export function AvailabilitySelect() {
-    const storeDoctorsFilter = useSelector(state => state.doctorsListFilterReducer);
+    const storeDoctorsFilter: DoctorsListFilterReducerType = useSelector((state: {doctorsListFilterReducer: DoctorsListFilterReducerType}) => state.doctorsListFilterReducer);
     const dispatch = useDispatch();
 
-    const toggleCheckBox = (checkboxId) => {
+    const toggleCheckBox = (checkboxId: string) => {
       let _checkedIds = [...storeDoctorsFilter.availability_checked];
       if(_checkedIds.includes(checkboxId)){
         _checkedIds = _checkedIds.filter((_checkboxId) => {
@@ -20,15 +21,15 @@ export function AvailabilitySelect() {
       dispatch(doctorsListFilterActions.updateAvailabilityChecked(_checkedIds));
     };
 
-    const isCheckBoxSelected = (checkboxId) => {
+    const isCheckBoxSelected = (checkboxId: string) => {
       return storeDoctorsFilter.availability_checked.includes(checkboxId);
     };
 
-    const clearValues = ({clearCache}) => {
+    const clearValues = ({clearCache} : {clearCache: boolean}) => {
       dispatch(doctorsListFilterActions.clearAvailability(clearCache));
     }
 
-    const getCount = () => {
+    const getCount = () : number => {
       let count = storeDoctorsFilter.availability_cache.checkboxs.length;
       return count;
     }

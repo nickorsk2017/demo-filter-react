@@ -1,6 +1,15 @@
 import {Button} from '@ui';
+import {Schemes} from "@ui";
 
-export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply }) => {
+type PropsType = {
+  isCheckBoxSelected: (checkboxId: string) => boolean;
+  toggleCheckBox: (checkboxId: string) => void;
+  clearValues: ({clearCache}: {clearCache: boolean}) => void;
+  apply: () => void
+};
+type ButtonsType = {JSX: Array<React.ReactNode>, justifyContent?: string};
+
+export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply } : PropsType) : {items: Array<Schemes>, buttons: ButtonsType} => {
     return { 
       items: [
         {
@@ -16,7 +25,6 @@ export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply }
           label: "Today",
           value: (checkboxId) => {return isCheckBoxSelected(checkboxId)},
           toggleCheckBox,
-          sufixJSX: <span style={{color: "#91A5A7", marginLeft: "8px"}}>(2)</span>
         },
         {
           // will use in a loop later, dont use index
@@ -25,7 +33,6 @@ export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply }
           label: "Next 3 days",
           value: (checkboxId) => isCheckBoxSelected(checkboxId),
           toggleCheckBox,
-          sufixJSX: <span style={{color: "#91A5A7", marginLeft: "8px"}}>(2)</span>
         },
         {
           id: "NEXT_2_WEEKS",
@@ -33,7 +40,6 @@ export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply }
           label: "Next 2 weeks",
           value: (checkboxId) => isCheckBoxSelected(checkboxId),
           toggleCheckBox,
-          sufixJSX: <span style={{color: "#91A5A7", marginLeft: "8px"}}>(2)</span>
         },
         {
           id: "AVAILABILITY_HR",
@@ -46,36 +52,32 @@ export const scheme = ({isCheckBoxSelected, toggleCheckBox, clearValues, apply }
           value: (checkboxId) => isCheckBoxSelected(checkboxId),
           toggleCheckBox,
           prefixJSX: <div style={{width: "24px", height: "24px", background: "#F5E585", borderRadius: "50px", display: "inline-flex", flexDirection: "row", alignItems: "center", justifyContent: "center", marginRight: "8px"}}><img style={{width: "12px", height: "12px"}} src="./video.svg"/></div>,
-          sufixJSX: <span style={{color: "#91A5A7", marginLeft: "8px"}}>(#X)</span>
         },
         {
           id: "ACCEPTS_NEW_PATIENTS",
           type: "checkbox",
           label: "Accepts new patients",
           value: (checkboxId) => isCheckBoxSelected(checkboxId),
-          toggleCheckBox,
-          sufixJSX: <span style={{color: "#91A5A7", marginLeft: "8px"}}>(2)</span>
+          toggleCheckBox
         },
         {
           id: "SCHEDULES_ONLINE",
           type: "checkbox",
           label: "Schedules online",
           value: (checkboxId) => isCheckBoxSelected(checkboxId),
-          toggleCheckBox,
-          sufixJSX: <span style={{color: "#91A5A7", marginLeft: "8px"}}>(2)</span>
+          toggleCheckBox
         },
         {
           id: "TREATS_СHILDREN",
           type: "checkbox",
           label: "Treats сhildren",
           value: (checkboxId) => isCheckBoxSelected(checkboxId),
-          toggleCheckBox,
-          sufixJSX: <span style={{color: "#91A5A7", marginLeft: "8px"}}>(2)</span>
+          toggleCheckBox
         },
 
       ],
       buttons: {
-        JSX: [<Button key="AVAILABILITY_RESET" onClick={clearValues} theme="heartyRed">Reset</Button>, <Button key="AVAILABILITY_APPLY" onClick={apply} style={{marginRight: 0}}>Apply</Button>],
+        JSX: [<Button key="AVAILABILITY_RESET" onClick={clearValues} theme="HEARTY_RED">Reset</Button>, <Button key="AVAILABILITY_APPLY" onClick={apply} style={{marginRight: 0}}>Apply</Button>],
         justifyContent: "space-between"
       }
     }

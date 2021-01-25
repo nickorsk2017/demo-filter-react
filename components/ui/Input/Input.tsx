@@ -2,20 +2,30 @@ import {useEffect} from "react";
 import {useThrottle} from './_hooks';
 import styles from './Input.module.scss';
 
+export interface ComponentProps_Input {
+  onChange(newValue: string): void;
+  value: string;
+  style?: React.CSSProperties;
+  typeInput?: "search" | "text" | "password" | "email" | "number";
+  placeholder: string;
+  suffixJSX?: React.ReactNode;
+  focusOnInit: boolean;
+}
+
 /**
  *  USING THROTTLE REACT COMPONENT PATTERN
  *  Callback will running after 300 ms, and input not will be blocked
  */
-export function Input(props) {
+export const Input: React.FC<ComponentProps_Input> = (props) => {
     const {onChange, value, style, typeInput, placeholder, suffixJSX, focusOnInit} = props;
   
     const {onBlurThrottle, onChangeThrottle, updateValueThrottle} = useThrottle({
       callback: onChange
     });
-    const inputRef = updateValueThrottle(value);
+    const inputRef: React.RefObject<HTMLInputElement> = updateValueThrottle(value);
 
     useEffect(()=>{
-      if(focusOnInit){
+      if(focusOnInit && inputRef.current){
         inputRef.current.focus();
       }
     },[]);

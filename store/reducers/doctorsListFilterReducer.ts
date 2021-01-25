@@ -17,7 +17,30 @@ import {
   APPLY_INSURANCE
 } from '../actionTypes';
 
-const initialState = {
+export type DoctorsListFilterReducerType = {
+  availability_checked: Array<string>;
+  speciality_checked: Array<string>;
+  insurance_checked: Array<string>;
+  sort_value: string | null;
+  specialityFilterValue: string;
+  insuranceFilterValue: string;
+  availability_cache: {
+    checkboxs: Array<string>
+  };
+  speciality_cache: {
+    checkboxs: Array<string>,
+    specialityFilterValue: string
+  };
+  insurance_cache: {
+    checkboxs: Array<string>,
+    insuranceFilterValue: string
+  };
+  sort_cache: null | string;
+};
+
+type ActionType = {type: string; checkedIds?: Array<string>; clearCache?: boolean; sort_value?: string | null; value?: string; revert?: boolean};
+
+const initialState: DoctorsListFilterReducerType = {
     availability_checked: [],
     speciality_checked: [],
     insurance_checked: [],
@@ -39,19 +62,19 @@ const initialState = {
       insuranceFilterValue: ""
     },
     sort_cache: null,
-  }
+};
   
-export function doctorsListFilterReducer(state = initialState, action) {
+export function doctorsListFilterReducer(state: DoctorsListFilterReducerType = initialState, action: ActionType) {
     let newState = _.cloneDeep(state);
     switch (action.type) {
       case AVAILABILITY_CHECKED_UPDATE:
-        newState.availability_checked = action.checkedIds;
+        newState.availability_checked = action.checkedIds || [];
         break;
       case SPECIALITY_CHECKED_UPDATE:
-        newState.speciality_checked = action.checkedIds;
+        newState.speciality_checked = action.checkedIds || [];
         break;
       case INSURANCE_CHECKED_UPDATE:
-        newState.insurance_checked = action.checkedIds;
+        newState.insurance_checked = action.checkedIds || [];
         break;
       case CLEAR_AVAILABILITY:
         newState.availability_checked = initialState.availability_checked;
@@ -77,13 +100,13 @@ export function doctorsListFilterReducer(state = initialState, action) {
         newState.sort_value = initialState.sort_value;
       break;
       case UPDATE_SPECIALITY_FILTER_VALUE:
-        newState.specialityFilterValue = action.value;
+        newState.specialityFilterValue = action.value || "";
       break;
       case UPDATE_INSURANCE_FILTER_VALUE:
-        newState.insuranceFilterValue = action.value;
+        newState.insuranceFilterValue = action.value || "";
       break;
       case SET_SORT_VALUE:
-        newState.sort_value = action.sort_value;
+        newState.sort_value = action.sort_value || "";
         break;
       case CLEAR_ALL_FILTERS: 
         return initialState;

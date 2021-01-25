@@ -8,7 +8,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -24,7 +24,8 @@
       "@systems": ["systems/"],
       "@mockup": ["mockup/"],
       "@ui": ["components/ui/"],
-      "@store/*": ["store/*"]
+      "@store/*": ["store/*"],
+      "@_types/*": ["types/*"]
     }
   },
   "include": [
