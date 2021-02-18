@@ -27,4 +27,4 @@ Mockup data have not each data for filters and sort.
 
 # To do
 
-Will better to use the storyBook and typescript later.
+Will better to use the storyBook and tests.
