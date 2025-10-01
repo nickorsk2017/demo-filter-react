@@ -1,9 +1,7 @@
 # Description
-This is demonstration the constructor of filter (How possible to do components with minimum coding).
+Demon of the constructor of filter (How possible to do components with minimum coding).
 
-For filter using the "Shema design pattern", see Flter component. Alternative solution is array of React components (JSX array)
-
-For optimisation used React.memo
+For filter is using the "Schema design pattern", see Filter component. Alternative solution is array of React components (JSX array)
 
 
 # Author
@@ -25,6 +23,3 @@ Should be opened in http://localhost:3000/
 
 Mockup data have not each data for filters and sort.
 
-# To do
-
-Will better to use the storyBook and tests.
